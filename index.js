@@ -1,3 +1,6 @@
+//READ ABOUT THE BODY OF FETCH AGAIN (SINCE YOU MESSED IT UP LAST TIME) AND THEN CONTINUE ON.
+//STOPPED AT SHOW ISSUES (EVERYTHING IS GOOD UP TO THERE).
+
 function getIssues() {
 }
 
@@ -11,16 +14,17 @@ function createIssue() {
   var token = getToken();
   var repo = 'kyleblee/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
   var postTitle = document.getElementById('title').value;
-  var postBody = {
-    body: document.getElementById('body').value
-  };
+  var postBody = document.getElementById('body').value;
+  var postData = {
+    title: postTitle,
+    body: postBody
+  }
 
   debugger; //check postTitle and postBody
 
   fetch('https://api.github.com/repos/' + repo + '/issues', {
     method: 'POST',
-    title: JSON.stringify(postTitle),
-    body: JSON.stringify(postBody), //HAVING A HARD TIME GETTING THESE FORMATTED CORRECTLY FOR THE POST REQUEST
+    body: JSON.stringify(postData),
     headers: {
       Authorization: `token ${token}`
     }
