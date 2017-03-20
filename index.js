@@ -10,7 +10,6 @@ function createIssue() {
 function showResults(json) {
   var resultsTemplate = Handlebars.compile(document.getElementById('repo-template').innerHTML);
   var resultsList = resultsTemplate(json);
-  debugger; //check what resultsList looks like
   document.getElementById('results').innerHTML = resultsList;
 }
 
