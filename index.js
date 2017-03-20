@@ -8,11 +8,18 @@ function createIssue() {
 }
 
 function showResults(json) {
+  var resultsTemplate = Handlebars.compile(document.getElementById('repo-template').innerHTML);
+  var resultsList = resultsTemplate(json);
+  debugger; //check what resultsList looks like
+  document.getElementById('results').innerHTML = resultsList;
 }
 
 function forkRepo() {
   const repo = 'learn-co-curriculum/javascript-fetch-lab'
   //use fetch to fork it!
+  fetch('https://api.github.com/repos/' + repo + '/forks')
+    .then(res => res.json())
+    .then(json => showResults(json));
 }
 
 function getToken() {
