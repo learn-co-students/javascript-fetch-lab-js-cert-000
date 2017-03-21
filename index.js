@@ -3,7 +3,7 @@ function getIssues() {
 
 function showIssues(el) {
   //getting the updated list of issues
-  const repo = 'kyleblee/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
+  const repo = 'learn-co-curriculum/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
   fetch('https://api.github.com/repos/' + repo + '/issues')
     .then(res => res.json())
     .then(json => displayIssues(json))
@@ -19,7 +19,7 @@ function showIssues(el) {
 function createIssue() {
   event.preventDefault();
   var token = getToken();
-  var repo = 'kyleblee/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
+  var repo = 'learn-co-curriculum/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
   var postTitle = document.getElementById('title').value;
   var postBody = document.getElementById('body').value;
   var postData = {
@@ -45,7 +45,7 @@ function showResults(json) {
 }
 
 function forkRepo() {
-  const repo = 'kyleblee/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
+  const repo = 'learn-co-curriculum/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
   //use fetch to fork it!
   fetch('https://api.github.com/repos/' + repo + '/forks')
     .then(res => res.json())
