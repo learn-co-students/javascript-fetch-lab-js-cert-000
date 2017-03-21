@@ -1,12 +1,19 @@
-//READ ABOUT THE BODY OF FETCH AGAIN (SINCE YOU MESSED IT UP LAST TIME) AND THEN CONTINUE ON.
-//STOPPED AT SHOW ISSUES (EVERYTHING IS GOOD UP TO THERE).
-
 function getIssues() {
 }
 
-function showIssues(json) {
-  console.log(json);
-  debugger;
+function showIssues(el) {
+  //getting the updated list of issues
+  const repo = 'kyleblee/javascript-fetch-lab-js-cert-000'; //change kyleblee back to "learn-co-curriculum" to pass tests
+  fetch('https://api.github.com/repos/' + repo + '/issues')
+    .then(res => res.json())
+    .then(json => displayIssues(json))
+
+  function displayIssues(json) {
+    var issuesTemplate = Handlebars.compile(document.getElementById('issues-template').innerHTML);
+    var issuesList = issuesTemplate(json);
+    debugger; //check what issuesList looks like
+    document.getElementById('issues').innerHTML = issuesList;
+  }
 }
 
 function createIssue() {
@@ -19,8 +26,6 @@ function createIssue() {
     title: postTitle,
     body: postBody
   }
-
-  debugger; //check postTitle and postBody
 
   fetch('https://api.github.com/repos/' + repo + '/issues', {
     method: 'POST',
